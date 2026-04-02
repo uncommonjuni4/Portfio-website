@@ -1,0 +1,158 @@
+
+/* --- About section style start --- */
+
+
+.about-section {
+  background-color: #0a0c10;
+  padding: 120px 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* 1. Background Animation */
+.about-animation-container {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  animation: backgroundAnimation 20s linear infinite;
+  opacity: 0.15; /* Bohat subtle rakhne ke liye */
+  z-index: 1;
+}
+
+
+
+@keyframes backgroundAnimation {
+  from { background-position: 0 0, 40px 60px, 130px 270px; }
+  to { background-position: 550px 550px, 590px 610px, 680px 820px; }
+}
+
+/* 2. image wrapper with double glow */
+.about-img-wrapper {
+  position: relative;
+  width: 320px; height: 320px;
+  display: flex;
+   justify-content: center; 
+   align-items: center;
+}
+
+.about-img {
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  z-index: 5;
+}
+
+/* inner glow (Cyan) */
+.about-glow-inner {
+  position: absolute;
+  width: 310px; height: 310px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+  z-index: 4;
+}
+
+/* outer Glow (purple) */
+.about-glow-outer {
+  position: absolute;
+  width: 340px; height: 340px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 60px rgba(188, 78, 156, 0.4);
+  z-index: 3;
+}
+
+/* Typography */
+.text-gradient-cyan {
+  background: linear-gradient(to right, var(--cyan), var(--blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lead-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #ccd6f6;
+  text-align: justify;
+}
+
+/* Dynamic Button */
+.btn-more-about {
+  padding: 12px 35px;
+  background: transparent;
+  color: var(--cyan);
+  border: 2px solid var(--cyan);
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+  display: inline-block;
+}
+
+.btn-more-about:hover {
+  background: var(--cyan);
+  color: #000;
+  box-shadow: 0 0 30px var(--cyan);
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .about-section {
+     text-align: center;
+}
+  .about-img-wrapper { 
+    width: 260px; 
+    height: 260px;
+     margin: 0 auto;
+ }
+  .about-img {
+     width: 240px; 
+    height: 240px;
+ }
+  .about-glow-inner { 
+    width: 250px;
+     height: 250px; 
+}
+  .about-glow-outer {
+     width: 270px;
+     height: 270px; 
+}
+}
+
+.lead-text {
+  font-size: 0.95rem; /* Text zyada hai isliye size thoda balance kiya */
+  line-height: 1.6;
+  color: #ccd6f6;
+  text-align: left; /* Image ke mutabiq left align behtar lagega */
+}
+
+/* Second Button Style */
+.btn-outline-neon {
+  padding: 12px 35px;
+  border: 1px solid rgba(0, 242, 254, 0.5);
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-outline-neon:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+}
+
+/* Border highlighting for the experience part */
+.border-start.border-info {
+    border-width: 3px !important;
+    border-radius: 4px;
+}

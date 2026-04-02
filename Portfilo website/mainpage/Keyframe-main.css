@@ -1,0 +1,68 @@
+
+/* --- 1. varibale is lye baniye hn ta ka sara page me use kaya ja saka start --- */
+:root {
+  --cyan: #00f2fe;
+  --blue: #4facfe;
+  --purple: #bc4e9c;
+  --pink: #f80759;
+  --dark-bg: #0a0c10;
+  --nav-bg: rgba(10, 12, 16, 0.95);
+}
+
+/* --- 1. varibale is lye baniye hn ta ka sara page me use kaya ja saka end --- */
+ 
+/* /// hero section me jo background h os ke lye ya ta ko here scrreen me acha or responive nazar aye /// start */
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+/* /// hero section me jo background h os ke lye ya ta ko here scrreen me acha or responive nazar aye /// end */
+
+
+
+/* media query for spin around pick start  */
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+/* media query for spin around pick end  */
+
+
+
+/* main page hero section media query css start */
+
+
+@media (max-width: 768px) {
+  .hero-section { 
+    text-align: center; 
+    padding-top: 140px; 
+}
+
+
+  .display-3 { 
+    font-size: 2.2rem !important;
+ }
+  .profile-container { 
+    width: 260px;
+     height: 260px;
+     margin: 0 auto;
+ }
+
+  .profile-img {
+     width: 240px; 
+    height: 240px;
+ }
+
+  .btn-vibrant { 
+    width: 100%;
+     max-width: 300px;
+     }
+}
+
+/* main page hero section media query  end  */
+
+
+
