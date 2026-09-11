@@ -1,158 +1,699 @@
-
-/* --- About section style start --- */
-
+/* =========================
+   ABOUT SECTION
+========================= */
 
 .about-section {
+  position: relative;
   background-color: #0a0c10;
-  padding: 120px 0;
-  color: #fff;
+  padding: 110px 0;
+  color: #ffffff;
   overflow: hidden;
 }
 
-/* 1. Background Animation */
-.about-animation-container {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-image: 
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-  background-size: 550px 550px, 350px 350px, 250px 250px;
-  background-position: 0 0, 40px 60px, 130px 270px;
-  animation: backgroundAnimation 20s linear infinite;
-  opacity: 0.15; /* Bohat subtle rakhne ke liye */
-  z-index: 1;
-}
-
-
-
-@keyframes backgroundAnimation {
-  from { background-position: 0 0, 40px 60px, 130px 270px; }
-  to { background-position: 550px 550px, 590px 610px, 680px 820px; }
-}
-
-/* 2. image wrapper with double glow */
-.about-img-wrapper {
+.about-content {
   position: relative;
-  width: 320px; height: 320px;
-  display: flex;
-   justify-content: center; 
-   align-items: center;
-}
-
-.about-img {
-  width: 300px; height: 300px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid rgba(255, 255, 255, 0.1);
   z-index: 5;
 }
 
-/* inner glow (Cyan) */
+
+/* =========================
+   BACKGROUND ANIMATION
+========================= */
+
+.about-animation-container {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-image:
+    radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.2) 2px,
+      transparent 3px
+    ),
+    radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.15) 1px,
+      transparent 2px
+    ),
+    radial-gradient(
+      white,
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 3px
+    );
+
+  background-size:
+    550px 550px,
+    350px 350px,
+    250px 250px;
+
+  background-position:
+    0 0,
+    40px 60px,
+    130px 270px;
+
+  animation: backgroundAnimation 20s linear infinite;
+
+  opacity: 0.12;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+@keyframes backgroundAnimation {
+
+  from {
+    background-position:
+      0 0,
+      40px 60px,
+      130px 270px;
+  }
+
+  to {
+    background-position:
+      550px 550px,
+      590px 610px,
+      680px 820px;
+  }
+
+}
+
+
+/* =========================
+   ABOUT IMAGE
+========================= */
+
+.about-img-wrapper {
+  position: relative;
+
+  width: 440px;
+  height: 440px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+}
+
+
+/* Main Image */
+
+.about-img {
+  position: relative;
+
+  width: 400px;
+  height: 400px;
+
+
+  object-position: center top;
+
+  border-radius: 50%;
+
+  border: 4px solid rgba(255, 255, 255, 0.12);
+
+  z-index: 5;
+
+  filter: drop-shadow(
+    0 20px 35px rgba(0, 0, 0, 0.45)
+  );
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.about-img:hover {
+  transform: scale(1.025);
+
+  filter:
+    drop-shadow(
+      0 20px 40px rgba(0, 242, 254, 0.15)
+    );
+}
+
+
+/* =========================
+   IMAGE INNER GLOW
+========================= */
+
 .about-glow-inner {
   position: absolute;
-  width: 310px; height: 310px;
+
+  width: 415px;
+  height: 415px;
+
   border-radius: 50%;
-  background: transparent;
-  box-shadow: 0 0 30px rgba(0, 242, 254, 0.6);
+
+  border: 1px solid rgba(0, 242, 254, 0.28);
+
+  box-shadow:
+    0 0 30px rgba(0, 242, 254, 0.6),
+    inset 0 0 22px rgba(0, 242, 254, 0.15);
+
   z-index: 4;
+
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
-/* outer Glow (purple) */
+
+/* =========================
+   IMAGE OUTER GLOW
+========================= */
+
 .about-glow-outer {
   position: absolute;
-  width: 340px; height: 340px;
+
+  width: 445px;
+  height: 445px;
+
   border-radius: 50%;
-  background: transparent;
-  box-shadow: 0 0 60px rgba(188, 78, 156, 0.4);
+
+  border: 1px solid rgba(188, 78, 156, 0.2);
+
+  box-shadow:
+    0 0 65px rgba(188, 78, 156, 0.38);
+
   z-index: 3;
+
+  animation: outerGlowPulse 5s ease-in-out infinite;
 }
 
-/* Typography */
+
+/* Glow Animations */
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.025);
+    opacity: 1;
+  }
+
+}
+
+@keyframes outerGlowPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.035);
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================
+   ABOUT SMALL TITLE
+========================= */
+
+.about-small-title {
+  display: inline-block;
+
+  color: var(--cyan);
+
+  font-size: 0.78rem;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 10px;
+}
+
+
+/* =========================
+   MAIN TITLE GRADIENT
+========================= */
+
 .text-gradient-cyan {
-  background: linear-gradient(to right, var(--cyan), var(--blue));
+  background: linear-gradient(
+    90deg,
+    var(--cyan),
+    var(--blue)
+  );
+
   -webkit-background-clip: text;
+
+  background-clip: text;
+
   -webkit-text-fill-color: transparent;
 }
 
-.lead-text {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #ccd6f6;
-  text-align: justify;
+
+/* =========================
+   ROLE TITLE
+========================= */
+
+.about-role {
+  color: #f1f5f9;
+
+  font-size: 1.15rem;
+
+  line-height: 1.7;
+
+  font-weight: 600;
 }
 
-/* Dynamic Button */
-.btn-more-about {
-  padding: 12px 35px;
-  background: transparent;
+.about-role span {
   color: var(--cyan);
-  border: 2px solid var(--cyan);
-  border-radius: 50px;
-  text-decoration: none;
+
+  margin: 0 6px;
+}
+
+
+/* =========================
+   ABOUT PARAGRAPHS
+========================= */
+
+.lead-text {
+  font-size: 0.98rem;
+
+  line-height: 1.8;
+
+  color: #aebbd7;
+
+  margin-bottom: 0;
+}
+
+.lead-text strong {
+  color: #ffffff;
+
   font-weight: 600;
-  transition: all 0.4s ease;
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
-  display: inline-block;
+}
+
+
+/* =========================
+   CURRENTLY LEARNING BOX
+========================= */
+
+.learning-box {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 15px 18px;
+
+  border-left: 3px solid var(--cyan);
+
+  background: linear-gradient(
+    90deg,
+    rgba(0, 242, 254, 0.08),
+    rgba(0, 242, 254, 0.02)
+  );
+
+  border-radius: 8px;
+
+  color: #cbd5e1;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+}
+
+.learning-box strong {
+  color: #ffffff;
+}
+
+.learning-icon {
+  font-size: 1.15rem;
+}
+
+
+/* =========================
+   SKILLS GRID
+========================= */
+
+.skills-wrapper {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+
+/* =========================
+   SKILL CARD
+========================= */
+
+.skill-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  padding: 14px 15px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-4px);
+
+  border-color: rgba(0, 242, 254, 0.35);
+
+  background: rgba(0, 242, 254, 0.045);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* =========================
+   SKILL ICON
+========================= */
+
+.skill-icon {
+  width: 40px;
+
+  min-width: 40px;
+
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: rgba(0, 242, 254, 0.08);
+
+  border: 1px solid rgba(0, 242, 254, 0.15);
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+}
+
+
+/* Skill Heading */
+
+.skill-item h6 {
+  color: #ffffff;
+
+  margin-bottom: 4px;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+}
+
+
+/* Skill Text */
+
+.skill-item p {
+  color: #8f9bb3;
+
+  margin: 0;
+
+  font-size: 0.79rem;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-more-about,
+.btn-outline-neon {
+  padding: 11px 28px;
+
+  border-radius: 50px;
+
+  text-decoration: none;
+
+  font-size: 0.92rem;
+
+  font-weight: 600;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* =========================
+   VIEW PROJECTS BUTTON
+========================= */
+
+.btn-more-about {
+  color: #000000;
+
+  background: var(--cyan);
+
+  border: 2px solid var(--cyan);
+
+  box-shadow:
+    0 0 18px rgba(0, 242, 254, 0.25);
 }
 
 .btn-more-about:hover {
-  background: var(--cyan);
-  color: #000;
-  box-shadow: 0 0 30px var(--cyan);
-  transform: translateY(-5px);
+  color: #000000;
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 0 30px rgba(0, 242, 254, 0.5);
 }
 
-@media (max-width: 768px) {
-  .about-section {
-     text-align: center;
-}
-  .about-img-wrapper { 
-    width: 260px; 
-    height: 260px;
-     margin: 0 auto;
- }
-  .about-img {
-     width: 240px; 
-    height: 240px;
- }
-  .about-glow-inner { 
-    width: 250px;
-     height: 250px; 
-}
-  .about-glow-outer {
-     width: 270px;
-     height: 270px; 
-}
-}
 
-.lead-text {
-  font-size: 0.95rem; /* Text zyada hai isliye size thoda balance kiya */
-  line-height: 1.6;
-  color: #ccd6f6;
-  text-align: left; /* Image ke mutabiq left align behtar lagega */
-}
+/* =========================
+   DOWNLOAD CV BUTTON
+========================= */
 
-/* Second Button Style */
 .btn-outline-neon {
-  padding: 12px 35px;
-  border: 1px solid rgba(0, 242, 254, 0.5);
-  color: #fff;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
+  color: #ffffff;
+
+  background: transparent;
+
+  border: 1px solid rgba(0, 242, 254, 0.45);
 }
 
 .btn-outline-neon:hover {
-  border-color: var(--cyan);
   color: var(--cyan);
-  box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+
+  border-color: var(--cyan);
+
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 0 20px rgba(0, 242, 254, 0.25);
 }
 
-/* Border highlighting for the experience part */
-.border-start.border-info {
-    border-width: 3px !important;
-    border-radius: 4px;
+
+/* =========================
+   LARGE SCREEN
+========================= */
+
+@media (min-width: 1200px) {
+
+  .about-img-wrapper {
+    width: 470px;
+    height: 470px;
+  }
+
+  .about-img {
+    width: 425px;
+    height: 425px;
+  }
+
+  .about-glow-inner {
+    width: 440px;
+    height: 440px;
+  }
+
+  .about-glow-outer {
+    width: 470px;
+    height: 470px;
+  }
+
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 991px) {
+
+  .about-section {
+    padding: 90px 0;
+  }
+
+  .about-img-wrapper {
+    width: 390px;
+    height: 390px;
+
+    margin-bottom: 20px;
+  }
+
+  .about-img {
+    width: 350px;
+    height: 350px;
+  }
+
+  .about-glow-inner {
+    width: 365px;
+    height: 365px;
+  }
+
+  .about-glow-outer {
+    width: 395px;
+    height: 395px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  .about-section {
+    padding: 75px 0;
+  }
+
+  .about-img-wrapper {
+    width: 320px;
+    height: 320px;
+  }
+
+  .about-img {
+    width: 285px;
+    height: 285px;
+  }
+
+  .about-glow-inner {
+    width: 300px;
+    height: 300px;
+  }
+
+  .about-glow-outer {
+    width: 325px;
+    height: 325px;
+  }
+
+  .skills-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .about-role {
+    font-size: 1rem;
+  }
+
+  .lead-text {
+    font-size: 0.92rem;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+
+  .about-section {
+    padding: 65px 0;
+  }
+
+  .about-img-wrapper {
+    width: 270px;
+    height: 270px;
+  }
+
+  .about-img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .about-glow-inner {
+    width: 252px;
+    height: 252px;
+  }
+
+  .about-glow-outer {
+    width: 275px;
+    height: 275px;
+  }
+
+  .about-buttons {
+    width: 100%;
+  }
+
+  .btn-more-about,
+  .btn-outline-neon {
+    flex: 1;
+
+    text-align: center;
+
+    padding: 10px 16px;
+  }
+
+  .skill-item {
+    padding: 12px;
+  }
+
+  .skill-icon {
+    width: 36px;
+
+    min-width: 36px;
+
+    height: 36px;
+  }
+
+}
+
+
+/* =========================
+   COLOR VARIABLES
+========================= */
+
+:root {
+  --cyan: #00f2fe;
+  --blue: #4facfe;
 }
