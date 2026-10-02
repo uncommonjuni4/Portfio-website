@@ -1,0 +1,115 @@
+/* --- 1. TEAM SECTION HOLDER & AURORA START --- */
+.team-section {
+  position: relative;
+  background: #05070a;
+  padding: 100px 0;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.team-section::before {
+  content: "";
+  position: absolute;
+  top: -20%; left: -10%; width: 120%; height: 140%;
+  background: linear-gradient(135deg, 
+              rgba(0, 242, 254, 0.15), 
+              rgba(162, 155, 254, 0.15), 
+              rgba(255, 118, 117, 0.15), 
+              rgba(85, 239, 196, 0.15));
+  background-size: 400% 400%;
+  filter: blur(80px);
+  animation: electricAurora 10s ease infinite;
+  z-index: -1;
+}
+
+@keyframes electricAurora {
+  0% { background-position: 0% 50%; transform: skewY(0deg); }
+  50% { background-position: 100% 50%; transform: skewY(-5deg); }
+  100% { background-position: 0% 50%; transform: skewY(0deg); }
+}
+/* --- 1. TEAM SECTION HOLDER & AURORA END --- */
+
+/* --- 2. EXPERT CARD STRUCTURE START --- */
+.expert-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  padding: 40px 15px;
+  text-align: center;
+  transition: 0.4s ease-in-out;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.expert-card:hover {
+  transform: translateY(-12px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+/* --- 2. EXPERT CARD STRUCTURE END --- */
+
+
+
+/* --- 3. IMAGE & ROLE SETTING START --- */
+.expert-img-holder {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.expert-img-holder img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.expert-card:hover img {
+  transform: scale(1.1);
+}
+
+.expert-role {
+  color: #00f2fe;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-bottom: 25px;
+}
+/* --- 3. IMAGE & ROLE SETTING END --- */
+/* --- 4. SOCIAL CONTACT TILES START --- */
+.expert-social {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 10px;
+  margin-top: auto;
+}
+
+.expert-social a {
+  width: 38px; height: 38px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  transition: 0.3s;
+}
+
+.expert-social a:hover { transform: translateY(-5px); color: #000; }
+
+.expert-social a[title="WhatsApp"]:hover { background: #25D366; border-color: #25D366; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+.expert-social a[title="GitHub"]:hover { background: #fff; border-color: #fff; }
+.expert-social a[title="LinkedIn"]:hover { background: #0077b5; border-color: #0077b5; box-shadow: 0 5px 15px rgba(0, 119, 181, 0.4); }
+.expert-social a[title="Email"]:hover { background: #ea4335; border-color: #ea4335; box-shadow: 0 5px 15px rgba(234, 67, 53, 0.4); }
+/* --- 4. SOCIAL CONTACT TILES END --- */
+
+/* --- 5. TOP GLOW ACCENTS START --- */
+.glow-cyan { border-top: 4px solid #00f2fe; }
+.glow-purple { border-top: 4px solid #a29bfe; }
+.glow-orange { border-top: 4px solid #ff7675; }
+.glow-green { border-top: 4px solid #55efc4; }
+.glow-red { border-top: 4px solid #fab1a0; }
+/* --- 5. TOP GLOW ACCENTS END --- */
