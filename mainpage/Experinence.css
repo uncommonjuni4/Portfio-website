@@ -1,0 +1,191 @@
+/* --- 1. DYNAMIC BACKGROUND (LEVEL DESIGN) --- */
+.juni-experience-section {
+    position: relative;
+    background: #02050a;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.juni-mesh-bg {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(45deg, #02050a, #0a0f19, #02050a);
+    z-index: 1;
+}
+
+/* Background par moving different color mixture */
+.juni-mesh-bg::before {
+    content: "";
+    position: absolute;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(255, 0, 222, 0.2) 0%, transparent 40%),
+                radial-gradient(circle, rgba(0, 242, 254, 0.2) 20%, transparent 50%),
+                radial-gradient(circle, rgba(122, 0, 255, 0.2) 40%, transparent 60%);
+    animation: moveMesh 15s linear infinite;
+}
+
+@keyframes moveMesh {
+    0% { transform: translate(-25%, -25%) rotate(0deg); }
+    100% { transform: translate(0%, 0%) rotate(360deg); }
+}
+
+.relative-content { position: relative; z-index: 2; }
+
+/* --- 2. 4-BOX GRID --- */
+.exp-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    padding: 0 15px;
+}
+
+/* --- 3. ANIMATED GLOW BOXES --- */
+.glow-box {
+    position: relative;
+    padding: 3px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff00de, #00f2fe, #7a00ff, #00ff88);
+    background-size: 300% 300%;
+    animation: borderFlow 5s ease infinite, float 4s ease-in-out infinite;
+    transition: 0.5s;
+}
+
+@keyframes borderFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.box-inner {
+    background: rgba(10, 15, 25, 0.97);
+    border-radius: 27px;
+    padding: 35px 20px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- 4. BUTTONS ANIMATION --- */
+.social-btns-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+/* 3 Mini Social Buttons */
+.mini-btn {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 2px solid #00f2fe;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+    background: rgba(0, 242, 254, 0.1);
+    box-shadow: 0 0 10px #00f2fe;
+    animation: buttonGlow 3s infinite alternate;
+}
+
+.mini-btn:hover {
+    background: #00f2fe; color: #000;
+    transform: rotate(360deg) scale(1.1);
+}
+
+/* Bada Button for More Details */
+.big-details-btn {
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ff00de, #00f2fe);
+    background-size: 200% auto;
+    color: #fff;
+    font-weight: 900;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: 0.4s;
+    animation: shineBtn 3s linear infinite;
+    box-shadow: 0 0 20px rgba(255, 0, 222, 0.5);
+}
+
+.big-details-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #00f2fe;
+    color: #000;
+}
+
+@keyframes shineBtn {
+    to { background-position: 200% center; }
+}
+
+@keyframes buttonGlow {
+    0% { box-shadow: 0 0 5px #00f2fe; }
+    100% { box-shadow: 0 0 20px #ff00de; border-color: #ff00de; }
+}
+
+/* --- 5. TEXT & ICONS --- */
+.box-icon { font-size: 3rem; margin-bottom: 15px; }
+.desc { color: #aab; font-size: 0.95rem; line-height: 1.5; }
+
+/* --- RESPONSIVE FIX (296px & Note 50i) --- */
+@media (max-width: 480px) {
+    .main-title { font-size: 1.6rem; }
+    .exp-grid-wrapper { grid-template-columns: 1fr; }
+    .box-inner { padding: 25px 15px; }
+}
+
+
+
+
+/* --- COLORFUL GRADIENT TEXT --- */
+.gradient-text {
+    background: linear-gradient(90deg, #ff00de, #00f2fe, #7a00ff, #00ff88);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    animation: textFlow 3s linear infinite;
+}
+
+@keyframes textFlow {
+    to { background-position: 200% center; }
+}
+
+/* --- NEON GLOW FOR DESCRIPTION --- */
+.neon-text-blue {
+    color: #00f2fe !important;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+}
+
+.neon-text-pink {
+    color: #ff00de !important;
+    text-shadow: 0 0 8px rgba(255, 0, 222, 0.6);
+}
+
+.neon-text-cyan {
+    color: #00ffcc !important;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.6);
+}
+
+.neon-text-green {
+    color: #00ff88 !important;
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.6);
+}
+
+/* Box titles adjustment */
+.box-inner h3 {
+    margin-top: 10px;
+    font-size: 1.6rem;
+}
+
+.desc {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+

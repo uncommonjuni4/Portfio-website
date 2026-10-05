@@ -1,0 +1,106 @@
+/* --- SKILLS SECTION: MODERN & RESPONSIVE --- */
+.skills-section {
+  min-height: 100vh;
+  background: radial-gradient(circle at center, #0d1117 0%, #010409 100%);
+  padding: 80px 0;
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+.skills-blur-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 242, 254, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.modern-skill-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 28px;
+  padding: 25px 15px;
+  text-align: center;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+}
+
+.skill-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-inner i { font-size: 2.5rem; transition: 0.4s; }
+.skill-inner span { font-size: 0.8rem; font-weight: 600; color: #ccd6f6; }
+
+.percent-text { color: #00f2fe; font-size: 0.85rem; margin-top: -5px; }
+
+/* GitHub / Link Button Styling */
+.btn-github-skill {
+  font-size: 0.65rem;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(0, 242, 254, 0.3);
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-top: 5px;
+  transition: 0.3s;
+  background: rgba(0, 242, 254, 0.05);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-github-skill:hover {
+  background: #00f2fe;
+  color: #000;
+  box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+}
+
+.skill-dot {
+  width: 5px;
+  height: 5px;
+  background: #00f2fe;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+/* Hover Effects */
+.modern-skill-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #00f2fe;
+  transform: translateY(-12px) rotate(3deg);
+}
+
+.modern-skill-card:hover .skill-dot { opacity: 1; transform: scale(1.5); }
+
+/* --- ICON COLORS --- */
+.text-orange { color: #e34c26; }
+.text-blue-alt { color: #264de4; }
+.text-yellow { color: #f7df1e; }
+.text-purple-alt { color: #7952b3; }
+.text-cyan { color: #38bdf8; }
+.text-info { color: #61dafb; }
+.text-blue { color: #3776ab; }
+.text-secondary { color: #00599c; }
+.text-teal { color: #00ad9f; }
+.linkedin-color { color: #0077b5; }
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 576px) {
+  .skills-section { padding: 50px 0; min-height: auto; }
+  .modern-skill-card { padding: 15px 10px; border-radius: 20px; }
+  .skill-inner i { font-size: 2rem; }
+  .skill-inner span { font-size: 0.7rem; }
+  .btn-github-skill { font-size: 0.6rem; padding: 3px 8px; }
+}
